@@ -105,6 +105,11 @@ module "buck2" {
   target_repository = "${var.target_repository}/buck2"
 }
 
+module "buildah" {
+  source            = "./images/buildah"
+  target_repository = "${var.target_repository}/buildah"
+}
+
 module "buildkit" {
   source            = "./images/buildkit"
   target_repository = "${var.target_repository}/buildkit"
@@ -1695,6 +1700,10 @@ output "summary_boring-registry" {
 
 output "summary_buck2" {
   value = module.buck2.summary
+}
+
+output "summary_buildah" {
+  value = module.buildah.summary
 }
 
 output "summary_buildkit" {
